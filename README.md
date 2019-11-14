@@ -20,8 +20,8 @@ Use Node.js and Express to build an API that performs CRUD operations on users.
 
 Database access will be done using the `db.js` file included inside the `data` folder. This file publishes the following methods:
 
-- `find()`: calling find returns a promise that resolves to an array of all the users contained in the database.
-- `findById()`: this method expects an `id` as it's only parameter and returns the user corresponding to the `id` provided or an empty array if no user with that `id` is found.
+- [x] `find()`: calling find returns a promise that resolves to an array of all the users contained in the database.
+- [x]`findById()`: this method expects an `id` as it's only parameter and returns the user corresponding to the `id` provided or an empty array if no user with that `id` is found.
 - `insert()`: calling insert passing it a user object will add it to the database and return an object with the `id` of the inserted user. The object looks like this: `{ id: 123 }`.
 - `update()`: accepts two arguments, the first is the `id` of the user to update and the second is an object with the `changes` to apply. It returns the count of updated records. If the count is 1 it means the record was updated correctly.
 - `remove()`: the remove method accepts an `id` as it's first parameter and upon successfully deleting the user from the database it returns the number of records deleted.
@@ -66,6 +66,7 @@ When the client makes a `POST` request to `/api/users`:
 - If the request body is missing the `name` or `bio` property:
 
   - cancel the request.
+  
   - respond with HTTP status code `400` (Bad Request).
   - return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
 
@@ -84,15 +85,15 @@ When the client makes a `GET` request to `/api/users`:
 
 - If there's an error in retrieving the _users_ from the database:
   - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The users information could not be retrieved." }`.
+  - [x] respond with HTTP status code `500`.
+  - [x] return the following JSON object: `{ error: "The users information could not be retrieved." }`.
 
 When the client makes a `GET` request to `/api/users/:id`:
 
 - If the _user_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
+  - [x] return HTTP status code `404` (Not Found).
+  - [x] return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
 
 - If there's an error in retrieving the _user_ from the database:
   - cancel the request.
